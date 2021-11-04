@@ -5,7 +5,7 @@ class Resource {
     function getAllManager(){
 
         $jsonUsers = array();
-        $getUsers = fopen("Users/Manager/Users.txt", "w") or die("Unable to open file!");
+        $getUsers = fopen("Users/Manager/Users.txt", "r") or die("Unable to open file!");
         if (filesize("Users/MANAGER/Users.txt") > 0) {
             $string = fread($getUsers, filesize("Users/MANAGER/Users.txt"));
             $jsonUsers = json_decode($string);
@@ -22,7 +22,7 @@ class Resource {
                 'response' => json_encode($jsonUsers)
             ];
         }
-        
+
         return json_encode($json);
     }
 
