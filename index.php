@@ -1,24 +1,27 @@
 <?php
-require_once("Auth.php");
-
-$auth = new Authentication();
-
-
 
 $ACTION = $_POST['ACTION'];
 
-if ($ACTION == "REGISTER") {
-    $username = $_POST['USERNAME'];
-    $usertype = $_POST['USERTYPE'];
-    $password = $_POST['PASSWORD'];
+if ($ACTION == "AUTHENTICATION") {
+    require_once("Auth.php");
 
-    echo $auth->register($username, $usertype, $password);
-} elseif ($ACTION == "LOGIN") {
-    $username = $_POST['USERNAME'];
-    $usertype = $_POST['USERTYPE'];
-    $password = $_POST['PASSWORD'];
+    $auth = new Authentication();
+    $ACTION2 = $_POST['ACTION2'];
 
-    echo $auth->login($username, $usertype, $password);
+    if ($ACTION2 == "REGISTER") {
+        $username = $_POST['USERNAME'];
+        $usertype = $_POST['USERTYPE'];
+        $password = $_POST['PASSWORD'];
+    
+        echo $auth->register($username, $usertype, $password);
+    } elseif ($ACTION2 == "LOGIN") {
+        $username = $_POST['USERNAME'];
+        $usertype = $_POST['USERTYPE'];
+        $password = $_POST['PASSWORD'];
+    
+        echo $auth->login($username, $usertype, $password);
+    }
 }
+
 
 ?>
