@@ -31,6 +31,17 @@ if ($ACTION == "AUTHENTICATION") {
     
         echo $auth->addManager($username, $password);
     }
+
+} elseif ($ACTION == "RESOURCE") {
+    require_once("Resource.php");
+
+    $res = new Resource();
+    $ACTION2 = $_POST['ACTION2'];
+
+    if ($ACTION2 == "GET_MANAGER") {
+        echo $res->getAllManager();
+    }
+
 } elseif ($ACTION == "SLP_DAY") {
     require_once("SLP.php");
 
