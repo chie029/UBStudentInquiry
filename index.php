@@ -10,26 +10,38 @@ if ($ACTION == "AUTHENTICATION") {
 
     if ($ACTION2 == "REGISTER") {
         $username = $_POST['USERNAME'];
-        $usertype = $_POST['USERTYPE'];
+        $manager = $_POST['MANAGER'];
         $password = $_POST['PASSWORD'];
     
-        echo $auth->register($username, $usertype, $password);
+        echo $auth->register($username, $manager, $password);
     } elseif ($ACTION2 == "LOGIN") {
+        $username = $_POST['USERNAME'];
+        $manager = $_POST['MANAGER'];
+        $password = $_POST['PASSWORD'];
+    
+        echo $auth->login($username, $manager, $password);
+    } elseif ($ACTION2 == "LOGIN_MANAGER") {
         $username = $_POST['USERNAME'];
         $password = $_POST['PASSWORD'];
     
-        echo $auth->login($username, $password);
+        echo $auth->loginManager($username, $password);
+    } elseif ($ACTION2 == "ADD_MANAGER") {
+        $username = $_POST['USERNAME'];
+        $password = $_POST['PASSWORD'];
+    
+        echo $auth->addManager($username, $password);
     }
 } elseif ($ACTION == "SLP_DAY") {
     require_once("SLP.php");
 
-    $auth = new SLP();
+    $slp = new SLP();
     $ACTION2 = $_POST['ACTION2'];
 
     if ($ACTION2 == "SEND_SLP"){
         $username = $_POST['USERNAME'];
-        $ACTION = $_POST['ACTION'];
+        $slps = $_POST['SLP'];
 
+        echo $slp->sendSLP($username, $slps);
     }
 
 }
