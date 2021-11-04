@@ -1,33 +1,24 @@
 <?php
+require_once("Auth.php");
 
-echo "wow";
-// include('db_connect.php');
+$auth = new Authentication();
 
-// $ACTION = $_POST['ACTION'];
 
-// if ($ACTION == "LOGIN") {
-//     $USERNAME = $_POST['USERNAME'];
-//     $PASSWORD = $_POST['PASSWORD'];
 
-//     $sql = "SELECT * FROM usertable WHERE username = '$USERNAME' AND password = '$PASSWORD'";
-//     $result = $conn->query($sql);
-    
-//     if ($result->num_rows > 0) {
-//         $json = [
-//             'status' => 'success',
-//             'response' => 'Authentication Success!'
-//         ];
-//     } else {
-//         $json = [
-//             'status' => 'failed',
-//             'response' => 'Authentication Failed!'
-//         ];
-//     }
+$ACTION = $_POST['ACTION'];
 
-//     echo json_encode($json);
+if ($ACTION == "REGISTER") {
+    $username = $_POST['USERNAME'];
+    $usertype = $_POST['USERTYPE'];
+    $password = $_POST['PASSWORD'];
 
-//     $conn->close();
+    echo $auth->register($username, $usertype, $password);
+} elseif ($ACTION == "LOGIN") {
+    $username = $_POST['USERNAME'];
+    $usertype = $_POST['USERTYPE'];
+    $password = $_POST['PASSWORD'];
 
-// }
+    echo $auth->login($username, $usertype, $password);
+}
 
 ?>

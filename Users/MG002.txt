@@ -1,0 +1,1 @@
+{"username":"MG002","usertype":"MANAGER","password":"12345"}
