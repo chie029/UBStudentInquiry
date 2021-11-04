@@ -20,6 +20,18 @@ if ($ACTION == "AUTHENTICATION") {
     
         echo $auth->login($username, $password);
     }
+} elseif ($ACTION == "SLP_DAY") {
+    require_once("SLP.php");
+
+    $auth = new SLP();
+    $ACTION2 = $_POST['ACTION2'];
+
+    if ($ACTION2 == "SEND_SLP"){
+        $username = $_POST['USERNAME'];
+        $ACTION = $_POST['ACTION'];
+
+    }
+
 }
 
 
