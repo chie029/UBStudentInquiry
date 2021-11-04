@@ -16,10 +16,9 @@ if ($ACTION == "AUTHENTICATION") {
         echo $auth->register($username, $usertype, $password);
     } elseif ($ACTION2 == "LOGIN") {
         $username = $_POST['USERNAME'];
-        $usertype = $_POST['USERTYPE'];
         $password = $_POST['PASSWORD'];
     
-        echo $auth->login($username, $usertype, $password);
+        echo $auth->login($username, $password);
     }
 }
 

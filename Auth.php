@@ -62,7 +62,7 @@ class Authentication {
         return json_encode($json);
     }
 
-    function login($username, $usertype, $password) {
+    function login($username, $password) {
         
         $found = 0;
         $return = 0;
@@ -132,8 +132,6 @@ class Authentication {
     }
 
 }
-
-// unlink("Users/testfile.txt");
 
 // $myfile = fopen("Users/testfile.txt", "w") or die("Unable to open file!");
 // $json = [
